@@ -1,0 +1,48 @@
+<div fxLayout="column">
+    <div fxLayout="row"> 
+        <span fxFlex></span>
+        <button mat-raised-button color="primary" class="m-l-10" (click)="addEmployee()">Add Employee</button>
+    </div>
+    <div fxLayout="row" class="m-t-15">
+        <form [formGroup]="formValue" fxLayout="row" fxFlex class="form-section">
+            <input type="text" matInput placeholder="First Name" formControlName="firstName"> <br>
+            <input type="text" matInput placeholder="Last Name" formControlName="lastName"> <br>
+            <input type="text" matInput placeholder="Email" formControlName="email"> <br>
+            <input type="text" matInput placeholder="Mobile" formControlName="mobile"> <br>
+            <input type="text" matInput placeholder="Salary" formControlName="salary">
+        </form>
+        <button *ngIf="isUpdate" mat-raised-button color="primary" class="m-l-10" (click)="updateEmployeeDetails()">update</button>
+        <button *ngIf="isAdd" mat-raised-button color="primary" class="m-l-10" (click)="postEmployeeDetails()">Add</button>
+    </div>
+
+   <table>
+        <thead>
+            <tr>
+                <th>Employee Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Id</th>
+                <th>Mobile No</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let row of employeeData"> 
+                <td>{{row.id}}</td>
+                <td>{{row.firstName}}</td>
+                <td>{{row.lastName}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.mobile}}</td>
+                <td>{{row.salary}}</td>
+                <td>
+                    <button [disabled]="isEdit" (click)="editEmployee(row)" mat-raised-button color="primary">Edit</button>
+                    <button (click)="delEmployee(row)" mat-raised-button color="warn" class="m-l-10">Delete</button>
+                </td>
+            </tr>
+        </thead>
+  </table>
+  
+  
+  
+  
+
+</div>

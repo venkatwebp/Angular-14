@@ -1,0 +1,33 @@
+<app-shopping-edit (childData)="onParent($event)" (ingredientAdded)="onIngredientAdded($event)"> </app-shopping-edit>
+<!-- <h2>{{element}}</h2> -->
+<mat-divider></mat-divider>
+<button class="m-t-10" mat-raised-button color="primary" routerLink="details">Details</button>
+<h2>{{shoppingList}}</h2>
+<mat-list role="list" appBetterHighlight>
+    <mat-list-item role="listitem" *ngFor="let ingredient of ingredients; let i=index">
+        {{ingredient.name}} ({{ingredient.amount}})
+        <span fxFlex></span> 
+        <button mat-mini-fab color="warn" (click)="delIngredient(i)" *ngIf="i!=0">X</button>
+    </mat-list-item>
+</mat-list>
+
+<!-- <div>
+    <div  fxLayout="column" fxFlex="30">
+        <div>
+            <h2 >{{course.name}}</h2>
+        </div> 
+    </div>
+</div> -->
+<div fxLayout="row">
+    <ul fxLayout="column" fxFlex="35">
+        <li *ngFor="let course of courses; let i = index" (click)="showCourse(i)">
+            {{course.name}}
+        </li>
+    </ul>
+    <!-- <div fxLayout="column" fxFlex="60" class="m-l-10">
+        <h2>{{currentCource.name}}</h2>
+        <p>{{currentCource.version}}</p>
+    </div> -->
+    <app-shopping-edit [sList]="shoppingList" *ngIf="showEdit" [taskDetails]="currentCource"></app-shopping-edit>
+</div>
+    

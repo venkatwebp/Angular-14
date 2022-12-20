@@ -1,0 +1,56 @@
+<div fxLayout="column">
+
+    <div fxLayout="row" fxFlex> 
+        <button mat-raised-button *ngFor="let num of numArray; let i = index" (click)="getNum(i)">
+            {{num}}
+        </button>
+    </div>
+    
+    
+    <div fxFlex fxLayout="row" class="m-t-20">
+        <div fxLayout="column" fxFlex="80">
+            <div fxLayout="row">
+               <div fxLayoutAlign="center center" *ngFor="let list of numArray" class="ar-num">{{list}}</div> 
+            </div>
+            <div fxLayout="column" fxFlex>
+                <div fxLayout="row" fxLayoutAlign="start start">
+                    <div class="topVal" fxLayout="column" fxLayoutAlign="center center" *ngFor="let n of bowlArr">{{n}}</div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                   <div class="sumValue" fxLayout="column" fxLayoutAlign="center center" *ngFor="let sum of finalValue">{{sum}}</div> 
+                </div>
+            </div>
+        </div>
+        <div fxLayout="column" fxFlex="10">
+            <div class="heading">
+                HDCP Score
+            </div>
+            <div *ngIf="maxValue" fxLayout="row" fxLayoutAlign="center center">
+                {{finalMaxValue}}
+            </div>
+        </div>
+        <div fxLayout="column" fxFlex="10">
+            <div class="heading">
+                Max Possible
+            </div>
+            <div *ngIf="maxValue" fxLayout="row" fxLayoutAlign="center center">
+                {{finalMaxValue}}
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center" style="margin-top: 60px">  
+        <form [formGroup]="formValue"> 
+            <input type="text" formControlName="firstName">
+            <input type="text" formControlName="lastName">
+            <input type="email" formControlName="email">
+            <input type="text" formControlName="mobile">
+            <input type="text" formControlName="salary">
+        </form>
+
+        <button class="m-l-10" mat-raised-button color="primary" (click)="postUser()">Add</button>
+    
+    </div>
+
+
+</div>

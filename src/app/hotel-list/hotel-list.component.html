@@ -1,0 +1,41 @@
+<div>
+  <h2> List of Hotels {{hotels.length}}</h2>
+  <hr>
+
+  <button mat-button (click)="getClients()">Get Clients</button>
+
+  <div *ngFor="let hotel of hotels"> 
+      <h3>{{hotel.name}}</h3>
+      <ul> 
+          <li>{{hotel.id}}</li>
+          <li>{{hotel.city}}</li>
+          <li><a [routerLink]="['/hotel-details', hotel.id]">Details</a></li>
+      </ul>
+  </div>
+  <div  *ngFor="let client of clients$ | async"> 
+    {{client.country}}
+  </div>
+
+  <span *ngIf="num%2 then one; else two"></span>
+  <ng-template #one>
+    Even
+  </ng-template>
+  <ng-template #two> 
+    ODD
+  </ng-template>
+  <span [ngSwitch]="num">
+    <ng-template ngSwitchCase="1"> 
+      <h1>This is First case</h1>
+    </ng-template>
+    <ng-template ngSwitchCase="2"> 
+      <h1>This is Second case</h1>
+    </ng-template>
+    <ng-template ngSwitchCase="3"> 
+      <h1>This is Third case</h1>
+    </ng-template>
+    <ng-template ngSwitchCase="4"> 
+      <h1>This is Forth case</h1>
+    </ng-template>
+  </span> 
+</div>
+ 

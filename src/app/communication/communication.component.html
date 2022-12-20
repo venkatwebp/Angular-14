@@ -1,0 +1,44 @@
+<div fxLayout="row" fxFlex="100">
+  <form fxLayout="column" fxFlex="50" [formGroup]="formValue" class="form-section">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput formControlName="lastName">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="email" matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput formControlName="mobile">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput formControlName="salary">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="postUsers()">Submit Data</button>
+  </form>
+  <mat-card fxLayout="column" style="margin-left:50px">
+    <h2>User Details</h2>
+    <table> 
+      <thead>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Salary</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.mobile}}</td>
+          <td>{{user.salary}}</td>
+        </tr>
+      </tbody> 
+
+    </table>
+  </mat-card>
+</div>

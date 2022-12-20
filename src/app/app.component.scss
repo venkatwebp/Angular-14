@@ -1,0 +1,35 @@
+.heading{
+    font-size: 30px;
+    color: red;
+}
+.container{
+    height: calc(100vh - 164px);
+    overflow: auto;
+}
+.gray-bg{
+    background-color: #cbcfd8;
+}
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 200px;
+  background-color: #f4f4f4;
+}
+.mat-drawer{
+    display: block;
+    position: absolute;
+    // top: 0;
+    top: 80px;
+    bottom: 0;
+    z-index: 3;
+    outline: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+ul li{
+  font-size: 40px;
+}

@@ -1,0 +1,2 @@
+<app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl"
+ (recipeSelected)="onSelectedRecipe(recipeEl)"></app-recipe-item>

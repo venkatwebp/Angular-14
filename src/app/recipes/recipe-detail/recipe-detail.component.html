@@ -1,0 +1,16 @@
+<mat-card class="m-b-20" fxLayout="column" appBetterHighlight 
+[defaultColor]="'white'" [highlightColor]="'silver'">
+    <div fxLayout="row">
+        <span fxFlex></span>
+        <button mat-raised-button (click)="fullImage()">Full Image</button>
+    </div>
+    <div fxLayout="row" fxFlex="25">
+        <img [src]="recipe.imagePath" #fullScreen alt="{{recipe.name}}" style="max-height: 200px" />
+    </div>
+    <div fxLayout="row" fxFlex="75" class="m-t-20">
+        <div fxLayout="column">
+            <h2>{{recipe.name}}</h2>
+            <p>{{recipe.description}}</p>
+        </div>
+    </div>
+</mat-card>

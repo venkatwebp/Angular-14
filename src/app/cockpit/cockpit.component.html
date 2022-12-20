@@ -1,0 +1,20 @@
+<div fxLayout="row">
+    <div>
+        <p>Add new Servers or blueprints</p>
+        <div fxLayout="row">
+            <p class="m-r-5"> {{employee.name}} ::</p>
+            <p> {{employee.designation}}</p>
+        </div>
+        <div fxLayout="column">
+            <label>Server Name</label>
+            <!-- <input mat-input type="text" [(ngModel)]="newServerName"> -->
+            <input mat-input type="text" #serverNameInput #colorStyle>
+            <label>Server Content</label>
+            <!-- <input mat-input type="text" [(ngModel)]="newServerContent"> -->
+            <input mat-input type="text" #serverContentInput>
+        </div>
+        <br>
+        <button class="m-r-5" mat-raised-button color="primary" (click)="onAddServer(serverNameInput)">Add Server</button>
+        <button mat-raised-button color="primary" (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- <div fxFlex fxLayout="row"> 
+    <form>
+        <div fxLayout="row" fxLayoutAlign="start center" class="m-b-20">
+            <div fxFlex="60" fxLayout="column" class="m-r-10">
+                <label for="name">name</label>
+                <input matInput type="text" id="name" #nameInput>
+            </div>
+            <div fxFlex="25" fxLayout="column" class="m-r-10">
+                <label for="amount">amount</label>
+                <input matInput type="number" id="amount" #nameAmount>
+            </div>
+        </div>
+
+
+        <div fxLayout="row">
+            <button mat-raised-button color="primary" class="m-r-5" (click)="onAddItem()">Add</button>
+            <button mat-raised-button color="warn">Clear</button>
+        </div>
+
+        <mat-card class="m-t-20">
+            <mat-card-title>{{inputName}}</mat-card-title>
+            <mat-card-subtitle>{{inputAmount}}</mat-card-subtitle>
+        </mat-card>
+    </form>
+</div> -->
+<button (click)="onChild()">Output</button> 
+<h2>{{sList}}</h2>
+<div class="m-l-10" *ngIf="showEditComponent">
+    <h2>{{taskDetails.name}}</h2>
+    <p>{{taskDetails.version}}</p>
+</div>
+
+<input type="number" #num>
+<button (click)="check(num.value)">Check Even/Odd</button>
+<div *ngIf="flag!=''; else empty">
+    <h1 *ngIf="flag=='even'">Even</h1>
+    <h1 *ngIf="flag=='odd'">Odd</h1>
+</div>
+<ng-template #empty>
+    <h2>Please enter the number in Input</h2>
+</ng-template>
+<!-- <h2>{{taskDetails | json}}</h2> -->

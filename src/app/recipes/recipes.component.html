@@ -1,0 +1,45 @@
+<div class="p-20" fxLayout="column"> 
+    <div fxLayout="row" fxFlex>
+        <h2>{{pgHeading}}</h2>
+    </div>
+    <div fxLayout="row">
+        <div fxFlex="40"> 
+            <app-recipe-list (recipeWasSelected)="selectedRecipe = $event"></app-recipe-list>
+        </div>
+        <span fxFlex></span>
+        <div fxFlex="50">
+            <ng-template [ngIf]="selectedRecipe">
+               <h2>Recipe Details!</h2> 
+            </ng-template>
+            <app-recipe-detail *ngIf="selectedRecipe; else infoText"
+             [recipe]="selectedRecipe"></app-recipe-detail>
+            <ng-template #infoText> 
+                <p>Please select a Recipe!</p>
+            </ng-template>
+        </div>
+    </div>
+    <div fxLayout="row">
+        <div fxLayout="column">
+            <app-active-users></app-active-users>
+            <app-inactive-users></app-inactive-users>
+        </div>
+    </div>
+    <div fxLayout="row">
+        <div fxLayout="column">
+            <h4>Users</h4>
+            <table *ngFor="let aUser of actUsers">
+                <tr>
+                    <td>{{aUser.name}}</td>
+                    <td>-</td>
+                </tr>
+                <tr *ngFor="let qualifi of aUser.qualifications">
+                    <td></td>
+                    <td> {{ qualifi.title }} - </td>
+                <div *ngFor="let dsg of qualifi.designation">
+                  {{dsg.name}}
+                </div>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

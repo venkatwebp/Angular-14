@@ -1,0 +1,15 @@
+<div fxLayout="row" class="border">
+    <div fxLayout="column">
+        <div fxLayout="row">
+            <h3>{{placeHolder}}</h3>
+        </div>
+        <!-- <div fxLayout="row" fxLayoutAlign="start center" class="heading"> {{element.name}}</div> -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="heading"> {{name}} {{serviceName}}</div>
+        <div fxLayout="row" fxLayoutAlign="start center" class="content">
+            <ng-content></ng-content>
+        </div>
+        <div fxLayout="row">
+            <button class="mat-raised-button" color="primary" (click)="onStartGame()">Start Game</button>
+        </div>
+    </div>
+</div>

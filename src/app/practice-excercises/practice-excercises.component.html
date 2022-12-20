@@ -1,0 +1,84 @@
+<app-notification-board></app-notification-board>
+
+<ul fxLayout="row">
+  <li (click)="onSelect(0)">Home</li>
+  <li (click)="onSelect(1)">Aboutus</li>
+  <li (click)="onSelect(2)">Careers</li>
+  <li (click)="onSelect(3)">Contact</li>
+ </ul>
+
+<div [ngSwitch]="menuList">
+    <ng-template ngSwitchCase="0">
+        <h1>This is a Home page</h1>
+    </ng-template>
+    <ng-template ngSwitchCase="1">
+        <h1>This is a Aboutus page</h1>
+    </ng-template>
+    <ng-template ngSwitchCase="2">
+        <h1>This is a Careers page</h1>
+    </ng-template>
+    <ng-template ngSwitchCase="3">
+        <h1>This is a Contact page</h1>
+    </ng-template>
+</div>
+<h2>{{currentMsg}}</h2>
+<input type="text" #message>
+<button mat-button (click)="sendMessage(message)">Send Message</button>
+
+<div fxLayout="row" class="m-t-20">
+    <input type="text" [formControl]="technologyUsed">
+    <button mat-button (click)="setDefaultValue()">Set Value</button>
+</div>
+
+<h2> {{'150' | currency: 'INR'}}</h2>
+<p>{{myInfo | json}}</p>
+<!-- <h2>{{name | customized : '12'}}</h2> -->
+<p>{{myInfo | customized}}</p>
+
+<input [(ngModel)]="searchItem" placeholder="Filter" class="m-b-20" />
+<ul class="normal"> 
+    <li *ngFor="let person of people | filter: searchItem: 'name'">{{person.name}} - {{person.age}} - {{person.country}}</li>
+</ul>
+
+<ul> 
+    <li appDropdown *ngFor="let student of commonService.studentList">{{student.name}}</li>
+</ul>
+<div fxLayout="row">
+    <div fxLayout="column" fxFlex="20">
+        <mat-form-field class="example-full-width">
+            <input matInput #name onkeyup="0">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput #age onkeyup="0">
+        </mat-form-field>
+        <button mat-button class="m-l-10" (click)="addName(name.value, age.value)"> Add Name</button>
+    </div>
+</div>
+
+<div fxLayout="column">
+    <mat-form-field appearance="fill">
+        <mat-label>Toppings</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+            <mat-select-trigger>
+            {{toppings.value?.[0] || ''}}
+            <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Favorite food</mat-label>
+        <input matInput [value]="toppings.value">
+      </mat-form-field>
+</div>
+
+<div fxLayout="column" class="sum">
+    <input type="text" #num1 (keyup)="0" />
+    <input type="text" #num2 (keyup)="1" />
+    <input type="text" #num3 (keyup)="2" />
+    <h2>{{res}}</h2>
+    <button mat-button (click)="sum(num1.value, num2.value, num3.value)">Add</button>
+</div>
