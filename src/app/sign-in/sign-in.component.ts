@@ -23,7 +23,7 @@ export class SignInComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.minLength(5), Validators.required]]
-    })    
+    })
   }
 
   signIn(){
