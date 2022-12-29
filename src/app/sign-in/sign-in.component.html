@@ -1,0 +1,28 @@
+<div fxFlex fxLayout="column" fxLayoutAlign="center center" class="signin-form">
+    <mat-card fxLayout="column">
+        <h2>Sign In</h2>
+        <form [formGroup]="signinValue" fxLayout="column" (ngSubmit)="signIn()"> 
+            <input type="text" placeholder="First Name" formControlName="firstName">
+            <div *ngIf="submitted && validate.firstName.errors">
+                <span class="text-red" *ngIf="validate.firstName.errors.required">First Name is required</span>
+            </div>
+            <input class="m-t-10" type="text" placeholder="Last Name" formControlName="lastName">
+            <div *ngIf="submitted && validate.lastName.errors">
+                <span class="text-red" *ngIf="validate.lastName.errors.required">Last Name is required</span>
+            </div>
+            <input class="m-t-10" type="email" placeholder="Email" formControlName="email">
+            <div *ngIf="submitted && validate.email.errors">
+                <span class="text-red" *ngIf="validate.email.errors.email">Email is invalid</span>
+                <span class="text-red" *ngIf="validate.email.errors.required">Email is required</span>
+            </div>
+            <input class="m-t-10" type="text" placeholder="Password" formControlName="password">
+            <div *ngIf="submitted && validate.password.errors">
+                <span class="text-red" *ngIf="validate.password.errors.minLength">Password is invalid</span>
+                <span class="text-red" *ngIf="validate.password.errors.required">Password is required</span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" class="m-t-50">
+                <button type="submit" mat-raised-button color="primary">Sign in</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

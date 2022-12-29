@@ -7,6 +7,7 @@ import { Component,
   AfterContentInit,
   ViewEncapsulation} from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -21,9 +22,11 @@ export class HeaderComponent implements OnInit {
   @ViewChild('headerBg') headerBg: any;
   stateName = '';
   user = "sudheer";
+  logoutBtn: boolean;
+  hideHeader: boolean;
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     console.log(this.greeter(this.user));
@@ -49,6 +52,10 @@ export class HeaderComponent implements OnInit {
   onSelect(type: any){
     this.navigation.emit(type);
     this.stateName = type;
+  }
+  logout(){
+    this.router.navigateByUrl('');
+    this.logoutBtn = false;
   }
 
 }

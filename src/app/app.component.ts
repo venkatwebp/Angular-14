@@ -11,6 +11,8 @@ export class AppComponent {
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
   products: any[] = [];
+  isAvailable: boolean = false;
+  route: string;
 
   title = 'udemyExercises';
   serverElements = [    {
@@ -42,6 +44,10 @@ export class AppComponent {
   sOffer: string = "Amazon 70% Offer avaialable!";
   heading: string = "Angular 14 New Features";
   sidenav: any;
+
+  signIn(){
+    this.isAvailable = true;
+  }
   
   getProducts() {
     return [
@@ -104,9 +110,6 @@ export class AppComponent {
   constructor() { 
     console.log('Constructor called!');
   }
-  // ngOnChanges(){
-  //   console.log('ngOnChanges called!');
-  // }
   ngOnInit(){
     this.products = this.getProducts();
     console.log('ngOnInit called!');

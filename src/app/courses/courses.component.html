@@ -1,4 +1,7 @@
-<input [(ngModel)]="searchText" type="text">
+<div fxLayout="row">
+  <input type="text" [formControl]="searchField"> 
+  <span>{{searchField.value}}</span>
+</div>
 <div fxLayout="row wrap">
     <div fxFlex="30" class="m-10" *ngFor="let course of courses; let i = index">
         <mat-card [routerLink]="['/service-details', course.id]" *ngIf="searchText === '' || course.name.toLowerCase().includes(searchText)">

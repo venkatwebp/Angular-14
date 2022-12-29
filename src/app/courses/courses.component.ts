@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CommonService } from '../shared/services/common.service';
 
@@ -19,6 +20,7 @@ export class CoursesComponent implements OnInit {
   courses: {id: number, name: string, imagePath: string, version: string, description: string}[] = [];
   serviceId: any;
   selectedCourse: any;
+  searchField = new FormControl();
 
   // displayedColumns: any[] = ['id', 'name', 'country'];
 
@@ -34,6 +36,8 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit() {
     this.courses = this.commonService.courses;
+
+    this.searchField.setValue("Search Cources");
     
     // this.courses = this.commonService.getServiceId(serviceId);
     

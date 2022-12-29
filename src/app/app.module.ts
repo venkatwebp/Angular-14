@@ -53,6 +53,9 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
 import { HeaderInterceptor } from './shared/header.interceptor';
 import { NotificationBoardComponent } from './notification-board/notification-board.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { HideDirective } from './shared/directives/hide.directive';
+import { InputComponent } from './practice-excercises/input/input.component';
 
 
 @NgModule({
@@ -85,7 +88,10 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
     CustomizedPipe,
     FilterPipe,
     NotificationBoardComponent,
-    EmployeeDashboardComponent
+    EmployeeDashboardComponent,
+    SignInComponent,
+    HideDirective,
+    InputComponent
   ],
   imports: [
     BrowserModule,

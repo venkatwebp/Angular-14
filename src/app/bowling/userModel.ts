@@ -3,6 +3,5 @@ export class UserModel{
     firstName: string = '';
     lastName: string = '';
     email: string = '';
-    mobile: string = '';
-    salary: string = '';
+    password: string = '';
 }

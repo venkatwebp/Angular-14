@@ -1,6 +1,6 @@
-<div fxLayout="column" class="width100">
+<div fxLayout="column" class="main-container">
   <app-header (SideNavToggle)="sidenav.toggle()"></app-header>
-  <div fxLayout="row" class="p-20 width100">
+  <div fxFlex fxLayout="column" fxLayoutAlign="start center" class="p-20 width100">
     <router-outlet></router-outlet>
   </div>
 
@@ -29,8 +29,7 @@
       </div>
       <div fxLayout="row">
         <div fxLayout="column" fxFlex> 
-          <app-cockpit (serverCreated)="onServerAdded($event)"
-          (blueprintCreated)="onBlueprintAdded($event)" *ngFor="let employee of employees" [employee]="employee"></app-cockpit>
+          
           <hr>
           <div fxLayout="row">
             <div fxLayout="column">

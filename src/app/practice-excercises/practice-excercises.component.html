@@ -1,4 +1,5 @@
 <app-notification-board></app-notification-board>
+<app-input *ngFor="let employee of employees" [employee]="employee"></app-input>
 
 <ul fxLayout="row">
   <li (click)="onSelect(0)">Home</li>

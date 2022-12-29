@@ -17,6 +17,21 @@ export class PracticeExcercisesComponent implements OnInit {
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   toppings = new FormControl();
   technologyUsed = new FormControl('Angular 7');
+  employees = [
+    {
+      name: 'Ajay',
+      designation: 'Node Developer'
+    },
+    {
+      name: 'Vijay',
+      designation: 'Angular Developer'
+    },
+    {
+      name: 'Sai',
+      designation: 'JS Developer'
+    },
+  ]
+  // employee = 'Vivek Sai';
 
   menuList: number = 0;
   // name: string = 'Angular';

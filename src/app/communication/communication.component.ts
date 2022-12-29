@@ -17,13 +17,15 @@ export class CommunicationComponent implements OnInit {
     private postApi: PostApiService) { }
 
   ngOnInit() {
-    this.formValue = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      mobile: [''],
-      salary: ['']
-    })
+      this.formValue = this.formBuilder.group({
+        firstName: [],
+        lastName: [],
+        email: [],
+        mobile: [],
+        salary: []
+      })
+
+      this.getUsers();    
   }
 
   // onSubmit(data: {uId: number, uEmail: string, uFName: string, uLName: string}){
@@ -33,6 +35,7 @@ export class CommunicationComponent implements OnInit {
   //   .subscribe((result)=>{
   //     this.users = result;
   //     console.log('result', result);
+  //  console.log('updating in Github');
   //   })
   // }
 

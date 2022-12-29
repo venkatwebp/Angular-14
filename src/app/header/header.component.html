@@ -8,11 +8,7 @@
         <a routerLink="bowling" routerLinkActive="active">Bowling</a>
         <a routerLink="excercises" routerLinkActive="active">Excercises</a>
         <span fxFlex></span>
-        <div appDropdown fxLayout="column">
-            <button mat-button>Menu</button>
-            <div class="menu">
-                <button mat-menu-item>Item 1</button>
-                <button mat-menu-item>Item 2</button>
-            </div>
+        <div fxLayout="column">
+            <button *ngIf="logoutBtn" mat-raised-button (click)="logout()">Logout</button>
         </div>
     </mat-toolbar>

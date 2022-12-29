@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../shared/services/api.service';
 import { UserModel } from './userModel';
 
@@ -24,22 +24,10 @@ export class BowlingComponent implements OnInit {
   maxLength: number = 20;
   finalMaxValue: number;
 
-  formValue!: FormGroup;
-  userObj : UserModel = new UserModel(); 
-
   constructor(private formBuilder: FormBuilder,
     private api: ApiService) { }
 
   ngOnInit() {
-
-    this.formValue = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      mobile: [''],
-      salary: ['']
-    });
-
 
     for(var i = 0; i <= 10; i++){
      this.numArray.push(i);
@@ -72,20 +60,5 @@ export class BowlingComponent implements OnInit {
   }
 
 
-  // userData code
-  postUser(){
-    this.userObj.firstName = this.formValue.value.firstName;
-    this.userObj.lastName = this.formValue.value.lastName;
-    this.userObj.email = this.formValue.value.email;
-    this.userObj.mobile = this.formValue.value.mobile;
-    this.userObj.salary = this.formValue.value.salary;
-
-
-    this.api.postEmployeeData(this.userObj)
-    .subscribe(res =>{
-      console.log(res);
-      
-    })
-  }
 
 }

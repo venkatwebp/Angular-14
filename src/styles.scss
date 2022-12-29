@@ -16,6 +16,9 @@ a{
 .m-t-20{
     margin-top: 20px !important;
 }
+.m-t-50{
+    margin-top: 50px !important;
+}
 .m-t-15{
     margin-top: 15px !important;
 }
@@ -40,7 +43,10 @@ a{
 app-employee-dashboard{
     width: 100%;
 }
-
+// text colors
+.text-red{
+    color: #f00;
+}
 
 .menu{
     display: none;
@@ -81,7 +87,6 @@ app-employee-dashboard{
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
   }
 

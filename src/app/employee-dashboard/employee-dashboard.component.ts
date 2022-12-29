@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormGroup, FormBuilder} from '@angular/forms';
 import { EmployeeModel } from './employee-dashboard.model';
 import { ApiService } from '../shared/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -13,6 +14,7 @@ export class EmployeeDashboardComponent {
   formValue !: FormGroup;
   employeeObj : EmployeeModel = new EmployeeModel();
   employeeData !: any;
+  isAvailable: boolean = true;
   
   addEmp: boolean = false;
   isAdd: boolean = true;
@@ -21,7 +23,8 @@ export class EmployeeDashboardComponent {
 
   constructor(
     private api: ApiService, 
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: Router
   ) { }
 
 
@@ -35,6 +38,9 @@ export class EmployeeDashboardComponent {
     });
 
     this.getAllEmployee();
+
+    console.log(this.route.url);
+    
   }
 
   addEmployee(){

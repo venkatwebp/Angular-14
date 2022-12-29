@@ -15,6 +15,21 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output() blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();;
 
+  employees = [
+    {
+      name: "AJay",
+      designation: "JS Developer"
+    },
+    {
+      name: "Sai",
+      designation: "Angular Developer"
+    },
+    {
+      name: "Vijay",
+      designation: "Backend Developer"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
